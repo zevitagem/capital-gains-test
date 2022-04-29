@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+    project-apps-php:
+        container_name: project-apps-php
+        build:
+            context: ./
+            dockerfile: images/php/Dockerfile
+        ports:
+            - "8080:80"
+        networks:
+            - project-network
+        volumes:
+            - ./config/apache/default.conf:/etc/apache2/sites-enabled/default.conf
+            - type: bind
+              source: ./src
+              target: /var/www/html
+volumes:
+    src:
+networks:
+  project-network:
+    external: true
