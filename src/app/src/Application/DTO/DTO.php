@@ -7,7 +7,6 @@ use App\Domain\Contracts\EntityInterface;
 
 abstract class DTO implements DTOInterface
 {
-
     public static function fromArray(array $parameters): self
     {
         $dto = new static;
@@ -24,8 +23,8 @@ abstract class DTO implements DTOInterface
             }
 
             throw new \InvalidArgumentException(
-                    sprintf('Attribute %s does not exist in %s', $key,
-                        get_class($dto))
+                sprintf('Attribute %s does not exist in %s', $key,
+                    get_class($dto))
             );
         }
 

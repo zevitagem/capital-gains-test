@@ -6,7 +6,6 @@ use App\Application\Helper\Facade;
 
 class Tax
 {
-
     public function __construct(public float $tax)
     {
         
